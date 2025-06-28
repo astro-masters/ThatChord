@@ -42,6 +42,7 @@ def get_settings(settingsfile="settings.yml",
                  muted=None,
                  top=None,
                  dict=None,
+                 script_directory=None
                  ):
     # firstly, put the manual assignments aside.
 
@@ -67,6 +68,7 @@ def get_settings(settingsfile="settings.yml",
     xpress = press
     xmuted = muted
     xtop = top
+    xscript_directory = script_directory
 
     # PRIORITY LEVEL 1: default values for all variables.
 
@@ -106,7 +108,7 @@ def get_settings(settingsfile="settings.yml",
     from .errors import err
     from . import custom
 
-    script_directory = os.path.dirname(os.path.realpath(__file__))
+    script_directory = xscript_directory or os.path.dirname(os.path.realpath(__file__))
     settings_path = os.path.join(script_directory, settingsfile)
     try:
         with open(settings_path, "r") as file:
