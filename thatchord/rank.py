@@ -18,7 +18,7 @@
 ###############################################################################
 
 # import error messages
-from errors import err
+from .errors import err
 
 # define the pressed helper function since it is used in several ranking funcs
 def helper_pressed(frets, stringstarts):

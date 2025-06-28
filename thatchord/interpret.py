@@ -16,13 +16,13 @@
 
 
 # import error messages
-from errors import err
+from .errors import err
 
 # we'll need reg exps for this bit
 import re
 
 # we'll also need dictionaries from other files
-import dicts
+from . import dicts
 
 # Define regexp for structure of input string
 structure =   r"([a-gA-G][b#]?)"       \

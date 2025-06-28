@@ -16,8 +16,8 @@
 ###############################################################################
 
 import re
-from errors import err
-import dicts
+from .errors import err
+from . import dicts
 
 # define the structure: separator followed by note
 structure = r"[^A-Ga-gb#0-9]*((\d)(\d)?|[A-Ga-g][b#]?)"
