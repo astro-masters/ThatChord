@@ -34,7 +34,7 @@ def pm(s):
         return + 1
     return 0
 
-def interpret(request, remove_duplicates = True):
+def interpret(request, remove_duplicates = True, settings = None):
     # make a copy of request which we chop notes off
     rc = request
     # initialise empty request. We will fill this note by note
