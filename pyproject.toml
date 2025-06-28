@@ -25,7 +25,7 @@ dependencies = [
 thatchord = "thatchord.thatchord:app"
 
 [tool.setuptools.packages.find]
-where = ["thatchord"]
+where = ["."]
 
 [build-system]
 requires = ["setuptools>=61.0"]
