@@ -66,8 +66,8 @@ def interpret(ss, settings=None):
     notes = dict(dicts.notes)
     alterations = dict(dicts.alterations)
 
-    if settings and 'dict' in settings[0] and settings[0]['dict']:
-        qualities = dict(settings[0]['dict'])
+    if settings and 'dict' in settings:
+        qualities = dict(settings['dict'])
     else:
         qualities = dict(dicts.qualities)
     
