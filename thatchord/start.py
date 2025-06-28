@@ -1,3 +1,5 @@
+import os
+
 from . import settings
 from .errors import err
 from . import interpret
@@ -18,6 +20,7 @@ def init_settings(
         "output_format": format,
         "output_method": output,
         "tuning": tuning,
+        # "script_directory": os.path.dirname(os.path.realpath(__file__))
     }
 
     return settings.get_settings(**override)
