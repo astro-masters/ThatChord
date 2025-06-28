@@ -337,6 +337,9 @@ def get_settings(settingsfile      = "settings.yml",
     
     if output_method == "PRINT" and not output_format == "TEXT":
         err("incompatible output")
+
+    if xtuning:
+        tuning = custom.interpret(xtuning, remove_duplicates = False)
         
     if len(tuning) != len(order):
         err(17)
