@@ -252,7 +252,7 @@ def get_settings(settingsfile="settings.yml",
         instrument_preset = instrument_preset[0:-2]
 
     # APPLY PRESETS: check for a file in presets/instruments.
-    script_directory = os.path.dirname(os.path.realpath(__file__))
+    script_directory = xscript_directory or os.path.dirname(os.path.realpath(__file__))
     preset_path = os.path.join(script_directory,
                                "presets/instruments/" + instrument_preset + ".yml")
     ymldict = {}
