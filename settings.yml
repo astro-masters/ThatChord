@@ -7,7 +7,7 @@ input:
 
 output:
   - how: splash
-  - format: png
+  - format: text
 
 saving:
   - method: single
