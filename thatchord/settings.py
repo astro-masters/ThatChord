@@ -105,8 +105,8 @@ def get_settings(settingsfile      = "settings.yml",
     
     import yaml
     import os
-    from errors import err
-    import custom
+    from .errors import err
+    from . import custom
     
     script_directory = os.path.dirname(os.path.realpath(__file__))
     settings_path = os.path.join(script_directory, settingsfile)

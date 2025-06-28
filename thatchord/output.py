@@ -18,7 +18,7 @@
 import os
 import platform # To differentiate between platforms
 # import error messages
-from errors import err
+from .errors import err
 
 def text(
          frets_in,

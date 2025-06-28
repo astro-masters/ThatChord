@@ -17,10 +17,10 @@
 
 
 # import error messages
-from errors import err
+from .errors import err
 
 # import ranking functions
-import rank
+from . import rank
 
 def smart_increment(maxes, current, remaining):
     # How many notes is our chord missing? I.e. how big is the remaining set?
