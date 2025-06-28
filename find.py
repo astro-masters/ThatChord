@@ -212,6 +212,6 @@ def find(chord, nmute = 0, important = 0, index = 1, nfrets = 12,
     
     # return the worst option in the list of options, which is at the index
     # requested (default is for options to have 1 entry).
-    if options == []:
+    if not options:
         err(16)
     return options[-1][0]
