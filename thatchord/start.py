@@ -60,7 +60,7 @@ def prepare_request(request: str, settings):
 
     if request[0:6].upper() == "CUSTOM":
         # активирован пользовательский ввод. Код в "custom.py".
-        chord = custom.interpret(request[6:], True, settings)
+        chord = custom.interpret(request[6:], True)
         # название удаляет CUSTOM, но добавляет ! для обозначения кастомного
         title = "!" + request[6:]
         filename = request
