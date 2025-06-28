@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+thatchord/thatchord.egg-info/PKG-INFO
+thatchord/thatchord.egg-info/SOURCES.txt
+thatchord/thatchord.egg-info/dependency_links.txt
+thatchord/thatchord.egg-info/entry_points.txt
+thatchord/thatchord.egg-info/requires.txt
+thatchord/thatchord.egg-info/top_level.txt

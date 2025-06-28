@@ -1,11 +1,17 @@
-import settings
-from errors import err
-import interpret
-import find
-import custom
+from . import settings
+from .errors import err
+from . import interpret
+from . import find
+from . import custom
 
 
-def init_settings(instrument='guitar', ranking='guitar', format='text', output='splash', tuning='E A D G B E'):
+def init_settings(
+        instrument='guitar',
+        ranking='guitar',
+        format='text',
+        output='splash',
+        tuning='E A D G B E'
+):
     override = {
         "instrument_preset": instrument,
         "ranking_preset": ranking,
@@ -51,13 +57,13 @@ def prepare_request(request: str, settings):
 
     if request[0:6].upper() == "CUSTOM":
         # активирован пользовательский ввод. Код в "custom.py".
-        chord = custom.interpret(request[6:])
+        chord = custom.interpret(request[6:], True, settings)
         # название удаляет CUSTOM, но добавляет ! для обозначения кастомного
         title = "!" + request[6:]
         filename = request
     else:
         # Стандартный ввод. Используем обычную функцию.
-        chord = interpret.interpret(request)
+        chord = interpret.interpret(request, settings)
         # Название и имя файла аккорда (для возможного вывода) - строка запроса.
         title = request
         filename = request
@@ -69,7 +75,6 @@ def prepare_request(request: str, settings):
         "listpos": listpos,
         "at": at,
     }
-
 
 # #tuning='D G D G B D'
 # setup = init_settings(
@@ -108,18 +113,21 @@ def prepare_request(request: str, settings):
 #         seen.add(t)
 #
 # print(f'========== solution ==========\n{unique_shapes}')
+setup = init_settings(
+    tuning='D G D G B D'
+)
+tcsettings = setup[0]
+request = prepare_request('C', setup)
+print(f'========== request ==========\n{request}')
+solution = find.find(request['chord'],
+                     nmute=tcsettings["nmute"],
+                     important=tcsettings["important"],
+                     index=request['listpos'],
+                     nfrets=tcsettings["nfrets"],
+                     tuning=tcsettings["tuning"],
+                     order=tcsettings["order"],
+                     ranks=tcsettings["ranks"],
+                     stringstarts=tcsettings["stringstarts"],
+                     fretspec=request['at'])
 
-# request = prepare_request('C', setup)
-# print(f'========== request ==========\n{request}')
-# solution = find.find(request['chord'],
-#                      nmute=tcsettings["nmute"],
-#                      important=tcsettings["important"],
-#                      index=request['listpos'],
-#                      nfrets=tcsettings["nfrets"],
-#                      tuning=tcsettings["tuning"],
-#                      order=tcsettings["order"],
-#                      ranks=tcsettings["ranks"],
-#                      stringstarts=tcsettings["stringstarts"],
-#                      fretspec=request['at'])
-#
-# print(f'========== solution ==========\n{solution}')
+print(f'========== solution ==========\n{solution}')

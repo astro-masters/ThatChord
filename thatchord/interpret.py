@@ -54,7 +54,7 @@ def hv(n):
         return 0
 
 # our main function
-def interpret(ss):
+def interpret(ss, settings=None):
     """
     takes a string and returns a list of numbers. 0 = C; 1 = C#; ...; 11 = B.
     """
@@ -65,7 +65,11 @@ def interpret(ss):
     # create copies of the dicts to avoid changes bleeding over
     notes = dict(dicts.notes)
     alterations = dict(dicts.alterations)
-    qualities = dict(dicts.qualities)
+
+    if settings and 'dict' in settings[0] and settings[0]['dict']:
+        qualities = dict(settings[0]['dict'])
+    else:
+        qualities = dict(dicts.qualities)
     
     # match to regexp
     m = re.match(structure, s)

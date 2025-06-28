@@ -23,17 +23,16 @@
 # --------------------------------------------------------------------------- #
 
 import typer
-from typing_extensions import Annotated
-import os
-import platform
+from rich.console import Console
 
 from . import interpret
 from . import find
-from . import rank
 from . import output
 from . import custom
 from . import settings
 from .errors import err
+
+console = Console()
 
 app = typer.Typer()
 
