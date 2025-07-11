@@ -116,21 +116,21 @@ def prepare_request(request: str, settings):
 #         seen.add(t)
 #
 # print(f'========== solution ==========\n{unique_shapes}')
-setup = init_settings(
-    tuning='D G D G B D'
-)
-tcsettings = setup[0]
-request = prepare_request('C', setup)
-print(f'========== request ==========\n{request}')
-solution = find.find(request['chord'],
-                     nmute=tcsettings["nmute"],
-                     important=tcsettings["important"],
-                     index=request['listpos'],
-                     nfrets=tcsettings["nfrets"],
-                     tuning=tcsettings["tuning"],
-                     order=tcsettings["order"],
-                     ranks=tcsettings["ranks"],
-                     stringstarts=tcsettings["stringstarts"],
-                     fretspec=request['at'])
-
-print(f'========== solution ==========\n{solution}')
+# setup = init_settings(
+#     tuning='D G D G B D'
+# )
+# tcsettings = setup[0]
+# request = prepare_request('C', setup)
+# print(f'========== request ==========\n{request}')
+# solution = find.find(request['chord'],
+#                      nmute=tcsettings["nmute"],
+#                      important=tcsettings["important"],
+#                      index=request['listpos'],
+#                      nfrets=tcsettings["nfrets"],
+#                      tuning=tcsettings["tuning"],
+#                      order=tcsettings["order"],
+#                      ranks=tcsettings["ranks"],
+#                      stringstarts=tcsettings["stringstarts"],
+#                      fretspec=request['at'])
+#
+# print(f'========== solution ==========\n{solution}')
